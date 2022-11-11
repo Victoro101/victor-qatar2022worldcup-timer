@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rrr.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+    font-family: 'Open Sans', sans-serif; -->
+
+</head>
+<section class="coming-soon">
+    <div class="timeHead">
+        <div>
+
+            <h2 id="liveMessage1">Count Down<h2>
+        </div>
+        <div>
+            <h2 id="liveMessage2">Qatar 2022</h2>
+
+        </div>
+    </div>
+    <div class="count-down">
+        <div>
+
+            <div class="day-container">
+                <h3 class="day">Time</h3>
+
+                <h3 class="label">Day</h3>
+            </div>
+            <div class="hour-container">
+                <h3 class="hour">Time</h3>
+
+                <h3 class="label">Hour</h3>
+            </div>
+
+
+        </div>
+        <div class="time2">
+
+            <div class="minute-container">
+                <h3 class="minute">Time</h3>
+
+                <h3 class="label">Minute</h3>
+            </div>
+
+            <div class="second-container">
+                <h3 class="second">Time</h3>
+
+                <h3 class="label">Second</h3>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="footer">
+        Made with 💝 by Victor.
+    </div>
+
+    <!-- <div class="gif">
+        <img src="./qatar-world-cup.gif" alt="">
+    </div> -->
+    <!-- <img src="Portada.jpg" alt=""><br>
+    <i class="fa-solid fa-bars"></i>
+    <i class="fa-solid fa-xmark"></i> -->
+
+</section>
+<!-- <div class="container" id="blur">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In eaque necessitatibus rem molestiae autem quibusdam
+        inventore, laudantium perspiciatis aspernatur iste dignissimos. Maxime voluptatibus placeat molestias adipisci
+        illum quaerat omnis neque.</p>
+
+    <a href="#" onclick="toggle()"> Click Here</a>
+
+</div> -->
+
+
+<!-- <script type="text/javascript">
+    function toggle() {
+        var blur = document.getElementById('blur');
+        blur.classList.toggle('active')
+    }
+
+
+</script> -->
+<script>
+    alert("Allow Notifications for when Tournament Begins");
+    function countdown(event) {
+
+        const countDate = new Date('november 9, 2022 22:10').getTime();
+        // console.log(countDate);
+        const now = new Date().getTime();
+        const gap = countDate - now;
+        const countDate2 = new Date('november 7,2022');
+        const now2 = new Date();
+        const live1 = document.querySelector("#liveMessage1");
+        const live2 = document.querySelector("#liveMessage2");
+
+
+
+
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+
+
+        const textDay = Math.floor(gap / day);
+        const textHour = Math.floor((gap % day) / hour);
+        const textMinute = Math.floor((gap % hour) / minute);
+        const textSecond = Math.floor((gap % minute) / second);
+        // console.log(textDay);
+        // setInterval(() => {
+
+        document.querySelector(".day").innerText = textDay;
+        document.querySelector(".hour").innerText = textHour;
+        document.querySelector(".minute").innerText = textMinute;
+        document.querySelector(".second").innerText = textSecond;
+        // }, 1000);
+        // console.log(gap);
+        if (gap <= -textDay) {
+            if (textDay <= 0 && textHour <= 0 && textMinute <= 0 && textSecond <= 0) {
+
+
+                // }, 1000);
+                document.querySelector(".day").innerText = 0;
+                document.querySelector(".hour").innerText = 0;
+                document.querySelector(".minute").innerText = 0;
+                document.querySelector(".second").innerText = 0;
+
+                live1.classList.add(".colorChange");
+                live1.textContent = "Qatar 2022";
+                live2.textContent = "has Began";
+
+                setTimeout(() => {
+                    alert("count down has ended");
+
+                }, 1000);
+                requestAndShowPermission();
+                clearInterval(timer);
+                return
+
+
+
+                // event.preventDefault();
+                // event.returnValue();
+
+            }
+        }
+
+    };
+    timer = setInterval(countdown, 1000);
+    // window.addEventListener("load", function (e) {
+    // e.preventDefault();
+    // })
+
+    // browser will ask for permission
+    let permission = Notification.permission;
+    if (permission === "granted") {
+        showNotification();
+    } else if (permission === "default") {
+        requestAndShowPermission();
+    }
+
+    function showNotification() {
+        const notification = new notification("Victor's Timer", {
+            body: "Hi mate,Qatar 2022 world cup is Starting Today",
+            icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
+        });
+        // if (document.visibilityState !== "visible") {
+        //     return;
+        // }
+        // var title = "victor's qatar";
+        // icon = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
+        // var body = "Qatar 2022 has began";
+        // var notification = new Notification('Title', { body, icon });
+        // notification.onclick = () => {
+        //     notification.close();
+        //     window.parent.focus();
+        // }
+    }
+    function requestAndShowPermission() {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                showNotification();
+            }
+        });
+    }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     if (!Notification) {
+    //         alert('Desktop notifications not available in your browser. Try Chromium.'); //if browser is not compatible this will occur
+    //         return;
+    //     }
+
+    //     if (Notification.permission !== "granted")
+    //         Notification.requestPermission();
+    // });
+
+    // function notifyMe() {
+    //     if (Notification.permission !== "granted")
+    //         Notification.requestPermission();
+    //     // alert("thanks");
+    //     else {
+    //         var notification = new Notification('CodeSpeedy(jgdjkjk))', {
+    //             icon: 'https://www.codespeedy.com/wp-content/themes/codespeedy/img/CodeSpeedy-Logo.png',
+    //             body: "Quatar 2022 has began",
+    //         });
+
+    //         notification.onclick = function () {
+    //             alert("lhvkjhvnk")
+    //             // window.open("http://170.187.134.184");
+    //         };
+
+    //     }
+
+    // }
+</script>
+<!-- 
+<div class="slideshow">
+    <div class="slides">
+    beginning radio buttons 
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <input type="radio" name="radio-btn" id="radio5"> -->
+<!-- it ends here  
+        <div class="slide first">
+            <p>chkshiciicjij</p>
+            <img src="five.jpeg" alt="">
+        </div>
+        <div class="slide">
+            <img src="four.jpeg" alt="">
+        </div>
+        <div class="slide">
+            <img src="./three.jpeg" alt="">
+        </div>
+        <div class="slide">
+            <img src="./two.jpeg" alt="">
+        </div>
+        <div class="slide">
+            <img src="one.jpeg" alt="">
+        </div>
+         autoplayer 
+        <div class="autoplay">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="au
+            to-btn3"></div>
+            <div class="auto-btn4"></div>
+            <div class="auto-btn5"></div>
+
+        </div>
+    </div>
+</div>
+ manual automation 
+<div class="manual-automation">
+    <label for="radio1" class="manual-btn"></label>
+    <label for="radio2" class="manual-btn"></label>
+    <label for="radio3" class="manual-btn"></label>
+    <label for="radio4" class="manual-btn"></label>
+    <label for="radio5" class="manual-btn"></label>
+
+
+
+</div>
+<script>
+    var counter = 1;
+    setInterval(function () {
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if (counter > 5) {
+            counter = 4;
+        }
+
+    }, 2000);
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
