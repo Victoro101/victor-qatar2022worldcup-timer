@@ -90,9 +90,10 @@
         var blur = document.getElementById('blur');
         blur.classList.toggle('active')
     }
-
-
+    
+    
 </script> -->
+@push("script")
 <script>
     alert("Allow Notifications for when Tournament Begins");
     function countdown() {
@@ -143,11 +144,11 @@
                 live1.textContent = "Qatar 2022";
                 live2.textContent = "has Began";
 
-                setTimeout(() => {
-                    alert("count down has ended");
+                // setTimeout(() => {
+                alert("count down has ended");
 
-                }, 1000);
-                requestAndShowPermission();
+                // }, 1000);
+                // requestAndShowPermission();
                 clearInterval(timer);
                 return
 
@@ -164,31 +165,37 @@
     // window.addEventListener("load", function (e) {
     // e.preventDefault();
     // })
+    push.create("Hi mate,Victor's Timer", {
+        body: "Qatar 2022 has began today",
 
+
+    });
     // browser will ask for permission
-    if (Notification.permission === 'granted') {
-        showNotification();
-    } else if (notification.permission !== "denied") {
-        notification.requestPermission().then(permission => {
-            if (permission === "granted") {
+    // if (Notification.permission === 'granted') {
+    //     showNotification();
+    // } else if (notification.permission !== "denied") {
+    //     notification.requestPermission().then(permission => {
+    //         if (permission === "granted") {
 
-                showNotification();
-            }
-        })
-    }
+    //             showNotification();
+    //         }
+    //     })
+    // }
 
-    function showNotification() {
-        const notification = new notification("Victor's Timer", {
-            body: "Hi mate,Qatar 2022 world cup is Starting Today",
-            icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
-        });
-    }
+    // function showNotification() {
+    //     const notification = new notification("Victor's Timer", {
+    //         body: "Hi mate,Qatar 2022 world cup is Starting Today",
+    //         icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
+    //     });
+    // }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"
+    integrity="sha512-DjIQO7OxE8rKQrBLpVCk60Zu0mcFfNx2nVduB96yk5HS/poYZAkYu5fxpwXj3iet91Ezqq2TNN6cJh9Y5NtfWg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-
-
+@endpush
 
 
 
