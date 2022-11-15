@@ -93,12 +93,12 @@
     
     
 </script> -->
-@push("script")
+
 <script>
     alert("Allow Notifications for when Tournament Begins");
-    function countdown() {
+    function countdown(event) {
 
-        const countDate = new Date('november 11, 2022 04:00').getTime();
+        const countDate = new Date('november 20, 2022 10:00').getTime();
         // console.log(countDate);
         const now = new Date().getTime();
         const gap = countDate - now;
@@ -144,17 +144,12 @@
                 live1.textContent = "Qatar 2022";
                 live2.textContent = "has Began";
 
-                // setTimeout(() => {
-                alert("count down has ended");
+                setTimeout(() => {
+                    alert("count down has ended");
 
-                // }, 1000);
-                // requestAndShowPermission();
+                }, 1000);
+                requestAndShowPermission();
                 clearInterval(timer);
-                push.create("Hi mate,Victor's Timer", {
-                    body: "Qatar 2022 has began today",
-
-
-                });
                 return
 
 
@@ -170,29 +165,73 @@
     // window.addEventListener("load", function (e) {
     // e.preventDefault();
     // })
+
     // browser will ask for permission
-    // if (Notification.permission === 'granted') {
-    //     showNotification();
-    // } else if (notification.permission !== "denied") {
-    //     notification.requestPermission().then(permission => {
-    //         if (permission === "granted") {
+    let permission = Notification.permission;
+    if (permission === "granted") {
+        showNotification();
+    } else if (permission === "default") {
+        requestAndShowPermission();
+    }
 
-    //             showNotification();
-    //         }
-    //     })
-    // }
+    function showNotification() {
+        const notification = new notification("Victor's Timer", {
+            body: "Hi mate,Qatar 2022 world cup is Starting Today",
+            icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
+        });
+        // if (document.visibilityState !== "visible") {
+        //     return;
+        // }
+        // var title = "victor's qatar";
+        // icon = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
+        // var body = "Qatar 2022 has began";
+        // var notification = new Notification('Title', { body, icon });
+        // notification.onclick = () => {
+        //     notification.close();
+        //     window.parent.focus();
+        // }
+    }
+    function requestAndShowPermission() {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                showNotification();
+            }
+        });
+    }
 
-    // function showNotification() {
-    //     const notification = new notification("Victor's Timer", {
-    //         body: "Hi mate,Qatar 2022 world cup is Starting Today",
-    //         icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goal.com%2Fen%2Fnews%2Fofficial-emblem-of-the-fifa-world-cup-2022-launched-in-qatar%2Fludb1jc3uiw61adxfooukpseb&psig=AOvVaw2yXiYfkiT5wWWHSTmIVyq5&ust=1668150043950000&source=images&cd=vfe&ved=0CBIQ3YkBahcKEwiYv9enhaP7AhUAAAAAHQAAAAAQEQ"
-    //     });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     if (!Notification) {
+    //         alert('Desktop notifications not available in your browser. Try Chromium.'); //if browser is not compatible this will occur
+    //         return;
+    //     }
+
+    //     if (Notification.permission !== "granted")
+    //         Notification.requestPermission();
+    // });
+
+    // function notifyMe() {
+    //     if (Notification.permission !== "granted")
+    //         Notification.requestPermission();
+    //     // alert("thanks");
+    //     else {
+    //         var notification = new Notification('CodeSpeedy(jgdjkjk))', {
+    //             icon: 'https://www.codespeedy.com/wp-content/themes/codespeedy/img/CodeSpeedy-Logo.png',
+    //             body: "Quatar 2022 has began",
+    //         });
+
+    //         notification.onclick = function () {
+    //             alert("lhvkjhvnk")
+    //             // window.open("http://170.187.134.184");
+    //         };
+
+    //     }
+
     // }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"
     integrity="sha512-DjIQO7OxE8rKQrBLpVCk60Zu0mcFfNx2nVduB96yk5HS/poYZAkYu5fxpwXj3iet91Ezqq2TNN6cJh9Y5NtfWg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
 
 
